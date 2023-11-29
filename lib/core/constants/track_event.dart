@@ -1,0 +1,3 @@
+class TrackEvent {
+  // FIREBASE EVENT TRACKER GOES HERE
+}

@@ -1,0 +1,7 @@
+{
+  "appName" : "StarterTemplate",
+  "companyName" : "Clean Architecture",
+  "login" : "Login",
+  "increment" : "Increment",
+  "decrement" : "Decrement"
+}

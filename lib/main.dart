@@ -1,44 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'app.dart';
 import 'core/localization/generated/strings.dart';
-import 'core/localization/l10n.dart';
-import 'core/theme/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(393, 852),
-      minTextAdapt: true,
-      splitScreenMode: false,
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-        locale: const Locale('en'),
-        supportedLocales: L10n.all,
-        theme: AppTheme.lightTheme,
-        darkTheme: AppTheme.darkTheme,
-        localizationsDelegates: const [
-          Strings.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      ),
-    );
-  }
+  runApp(const StarterTemplateApp());
 }
 
 class MyHomePage extends StatefulWidget {
@@ -93,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
             tooltip: Strings.of(context)!.increment,
             child: const Icon(Icons.add),
           ),
-          40.horizontalSpace,
+          20.horizontalSpace,
           FloatingActionButton(
             onPressed: _decrementCounter,
             tooltip: Strings.of(context)!.decrement,

@@ -16,6 +16,10 @@ class AppRouter {
       },
       //navigatorKey: GlobalKey<NavigatorState>(),
       debugLogDiagnostics: true,
+      
+      observers: [
+        NavigatorObserver(),
+      ],
       routes: routers);
 
   static GoRouter get router => _router;

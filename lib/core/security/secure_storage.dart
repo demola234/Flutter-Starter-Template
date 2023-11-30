@@ -1,8 +1,8 @@
-part of 'secure.dart';
+part of 'security.dart';
 
 abstract class SecureStorage {
-  Future<void> setKey(String value, String hiveKey);
-  Future<String?> getKey(String hiveKey);
+  Future<void> setKey(String value, String dataKey);
+  Future<String?> getKey(String dataKey);
 }
 
 class ISecureStorage implements SecureStorage {
@@ -12,16 +12,16 @@ class ISecureStorage implements SecureStorage {
 
   @override
   @override
-  Future<String?> getKey(String hiveKey) async {
+  Future<String?> getKey(String dataKey) async {
     return _flutterSecureStorage.read(
-      key: hiveKey,
+      key: dataKey,
     );
   }
 
   @override
-  Future<void> setKey(String value, String hiveKey) async {
+  Future<void> setKey(String value, String dataKey) async {
     await _flutterSecureStorage.write(
-      key: hiveKey,
+      key: dataKey,
       value: value,
       aOptions: const AndroidOptions(
           encryptedSharedPreferences: true,

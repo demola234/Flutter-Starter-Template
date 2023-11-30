@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
 
 class ConsoleOutput extends LogOutput {
@@ -12,7 +13,7 @@ class ConsoleOutput extends LogOutput {
   @override
   void output(OutputEvent event) {
     for (var line in event.lines) {
-      print(line);
+      debugPrint(line);
     }
   }
 
@@ -43,7 +44,7 @@ class ConsoleOutput extends LogOutput {
     ),
   );
 
-  void log(String message, {LogLevel level = LogLevel.debug}) {
+  void _log(String message, {LogLevel level = LogLevel.debug}) {
     if (level == LogLevel.verbose) {
       logger.v(message);
     } else if (level == LogLevel.debug) {
@@ -61,8 +62,10 @@ class ConsoleOutput extends LogOutput {
     }
   }
 
-  static void logVerbose(String message, {LogLevel? level}) {
-    _consoleOutput.log(message, level: level!);
+  static void logVerbose(String message, {LogLevel level = LogLevel.error}) {
+    if (!kReleaseMode) {
+      _consoleOutput._log(message, level: level);
+    }
   }
 }
 

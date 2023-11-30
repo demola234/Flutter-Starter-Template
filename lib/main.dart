@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'app.dart';
 import 'core/localization/generated/strings.dart';
+import 'core/logger/logger.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,12 +26,14 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
+    ConsoleOutput.logVerbose('Increment $_counter');
     setState(() {
       _counter++;
     });
   }
 
   void _decrementCounter() {
+    ConsoleOutput.logVerbose('Decrement $_counter');
     setState(() {
       _counter--;
     });

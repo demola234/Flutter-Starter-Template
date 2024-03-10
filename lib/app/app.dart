@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'core/localization/generated/strings.dart';
-import 'core/localization/l10n.dart';
-import 'core/theme/app_theme.dart';
-import 'main.dart';
+import '../core/localization/generated/strings.dart';
+import '../core/localization/l10n.dart';
+import '../core/theme/app_theme.dart';
+import 'home.dart';
 
 class StarterTemplateApp extends StatelessWidget {
-  const StarterTemplateApp({super.key});
+  final String title;
+  const StarterTemplateApp({required this.title, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class StarterTemplateApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: false,
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: title,
         debugShowCheckedModeBanner: false,
         locale: const Locale('en'),
         supportedLocales: L10n.all,
@@ -28,7 +29,7 @@ class StarterTemplateApp extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        home: MyHomePage(title: title),
       ),
     );
   }

@@ -28,7 +28,7 @@ class StarterTemplateApp extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        home: const MyHomePage(title: 'gRPC Demo'),
       ),
     );
   }

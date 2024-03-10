@@ -9,66 +9,62 @@ environment:
   sdk: ">=3.2.0 <4.0.0"
 
 dependencies:
+  animate_do: null
+  cached_network_image: ^3.2.3
+  collection: ^1.17.2
+  copy_with_extension: ^5.0.2
+  cupertino_icons: ^1.0.2
+  curl_logger_dio_interceptor: ^1.0.0
+  dartz: null
+  dio: ^5.3.4
+  dio_smart_retry: ^6.0.0
+  equatable: ^2.0.5
+  eva_icons_flutter: ^3.1.0
   flutter:
     sdk: flutter
-
-  cupertino_icons: ^1.0.2
-  flutter_bloc:
-
-  injectable: ^2.3.2
-  get_it: ^7.6.0
-
-  dio: ^5.3.4
-  pretty_dio_logger:
-  dartz:
-
-  flutter_dotenv:
-  collection: ^1.17.2
-  package_info_plus: ^5.0.1
-  go_router: ^12.1.1
-
-  google_fonts: ^6.1.0
-  eva_icons_flutter: ^3.1.0
-  lottie: ^2.7.0
-
-  cached_network_image: ^3.2.3
-
-  flutter_screenutil: ^5.9.0
-  permission_handler: ^11.1.0
-
-  copy_with_extension: ^5.0.2
-  equatable: ^2.0.5
-  json_annotation: ^4.8.0
-  logger: ^2.0.2+1
-
-  get_storage: ^2.1.1
-  animate_do:
-  pretty_animated_buttons:
-
-  freezed_annotation: ^2.4.1
+  flutter_bloc: null
+  flutter_dotenv: null
   flutter_localizations:
     sdk: flutter
-  intl: any
+  flutter_screenutil: ^5.9.0
   flutter_secure_storage: ^9.0.0
+  freezed_annotation: ^2.4.1
+  get_it: ^7.6.0
+  get_storage: ^2.1.1
+  go_router: ^12.1.1
+  google_fonts: ^6.1.0
+  grpc: ^3.2.4
+  injectable: ^2.3.2
   internet_connection_checker: ^1.0.0+1
-  curl_logger_dio_interceptor: ^1.0.0
-  dio_smart_retry: ^6.0.0
+  flutter_riverpod: ^2.3.6
+  intl: any
+  json_annotation: ^4.8.0
+  logger: ^2.0.2+1
+  lottie: ^2.7.0
+  package_info_plus: ^5.0.1
+  permission_handler: ^11.1.0
+  pretty_animated_buttons: null
+  riverpod: ^2.4.9
+  riverpod_annotation: ^2.3.3
+  pretty_dio_logger: null
+  protobuf: any
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
-  injectable_generator: ^2.4.1
+  analyzer: null
   build_runner: ^2.4.7
-  json_serializable: ^6.7.1
   copy_with_extension_gen: ^5.0.4
-  freezed: ^2.4.1
+  dart_code_metrics_presets: ^2.6.0
 
   flutter_launcher_icons: ^0.13.0
 
   flutter_lints: ^3.0.1
-  dart_code_metrics_presets: ^2.6.0
-  analyzer:
+  flutter_test:
+    sdk: flutter
+  freezed: ^2.4.1
+
+  injectable_generator: ^2.4.1
+  json_serializable: ^6.7.1
+  riverpod_generator: null
 
 flutter:
   # generate: true

@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package pb;
+import "google/protobuf/timestamp.proto";
+
+message CreateTaskRequest {
+    string task_name = 1;
+    string task_description = 2;
+    string task_deadline = 3;
+    string task_status = 4;
+    string task_priority = 5;
+    google.protobuf.Timestamp task_createdAt = 6;
+}
+
+
+message CreateTaskResponse {
+    string task_name = 1;
+    string task_description = 2;
+    string task_deadline = 3;
+    string task_status = 4;
+    string task_priority = 5;
+    google.protobuf.Timestamp task_createdAt = 6;
+    google.protobuf.Timestamp task_updatedAt = 7;
+    int64 task_id = 8;
+}
+
+
+message EmptyGetRequest {
+    
+}
+
+message GetAllTaskResponse {
+    repeated Task tasks = 1;
+}
+
+message DeleteTaskRequest {
+    int64 id = 1;
+}
+
+
+message EmptyTaskRequest {
+   
+}
+
+message UpdateTaskRequest {
+    int64 id = 1;
+    string title = 2;
+    string description = 3;
+    string task_status = 4;
+    string task_priority = 5;
+}
+
+message UpdateTaskResponse {
+    Task task = 1;
+}
+
+message Task {
+    string task_name = 1;
+    string task_description = 2;
+    string task_deadline = 3;
+    string task_status = 4;
+    string task_priority = 5;
+    google.protobuf.Timestamp task_createdAt = 6;
+    google.protobuf.Timestamp task_updatedAt = 7;
+    int64 task_id = 8;
+}
+
+
+
+service TodoGrpc {
+    rpc CreateTask(CreateTaskRequest) returns (CreateTaskResponse){}
+    rpc GetTask(EmptyGetRequest) returns (GetAllTaskResponse){}
+    rpc DeleteTask(DeleteTaskRequest) returns (EmptyTaskRequest){}
+    rpc UpdateTask(UpdateTaskRequest) returns (UpdateTaskResponse){}
+}

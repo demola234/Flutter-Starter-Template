@@ -103,6 +103,5 @@ deploy-android: ## Sends the Android build to Closed Testing
 
 deploy-ios: ## Sends the iOS build to TestFlight
 	@echo "╠ Sending iOS Build to TestFlight..." 
-	cd ios/fastlane && bundle install --path vendor/bundle && bundle exec fastlane deploy
 
 deploy: deploy-ios deploy-android

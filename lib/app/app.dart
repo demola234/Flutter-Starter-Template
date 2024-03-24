@@ -14,39 +14,46 @@ class StarterTemplateApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer(
-      builder: (_, WidgetRef ref, __) {
-        final themeMode = ref.watch(themeProvider);
-        return ScreenUtilInit(
-          designSize: const Size(393, 852),
-          minTextAdapt: true,
-          splitScreenMode: false,
-          child: MaterialApp(
-            title: title,
-            debugShowCheckedModeBanner: false,
-            locale: const Locale('en'),
-            supportedLocales: L10n.all,
-            themeMode: _getThemeMode(themeMode),
-            localizationsDelegates: const [
-              Strings.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            home: MyHomePage(title: title),
-          ),
-        );
-      },
+    return ProviderScope(
+      child: Consumer(
+        builder: (_, WidgetRef ref, __) {
+          final themeMode = ref.watch(themeProvider);
+          print(themeMode);
+          return ScreenUtilInit(
+            designSize: const Size(393, 852),
+            minTextAdapt: true,
+            splitScreenMode: false,
+            child: MaterialApp(
+              title: title,
+              debugShowCheckedModeBanner: false,
+              locale: const Locale('en'),
+              supportedLocales: L10n.all,
+              theme: _getThemeData(themeMode),
+              localizationsDelegates: const [
+                Strings.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              home: MyHomePage(title: title),
+            ),
+          );
+        },
+      ),
     );
   }
 
-  ThemeMode _getThemeMode(ThemeModeEnum mode) {
-    switch (mode) {
+// Function to get ThemeData for each ThemeModeEnum
+  ThemeData _getThemeData(ThemeModeEnum themeMode) {
+    switch (themeMode) {
+      case ThemeModeEnum.Light:
+        return AppTheme.lightTheme;
       case ThemeModeEnum.Dark:
-        return ThemeMode.dark;
+        return AppTheme.darkTheme;
       case ThemeModeEnum.Dim:
-        return ThemeMode.dark; // You can define a dim theme as well
+        // Define your dim theme here
+        return AppTheme.darkTheme;
       default:
-        return ThemeMode.light;
+        return ThemeData.light();
     }
   }
 }

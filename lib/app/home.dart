@@ -1,35 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../core/localization/generated/strings.dart';
-import '../core/logger/logger.dart';
+import '../core/theme/theme_detector.dart';
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends ConsumerStatefulWidget {
   const MyHomePage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  ConsumerState<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    ConsoleOutput.logVerbose('Increment $_counter');
-    setState(() {
-      _counter++;
-    });
-  }
-
-  void _decrementCounter() {
-    ConsoleOutput.logVerbose('Decrement $_counter');
-    setState(() {
-      _counter--;
-    });
-  }
-
+class _MyHomePageState extends ConsumerState<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,31 +24,25 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              Strings.of(context)!.appName,
+            ElevatedButton(
+              onPressed: () => _changeTheme(context, ThemeModeEnum.Light),
+              child: const Text('Light Theme'),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            ElevatedButton(
+              onPressed: () => _changeTheme(context, ThemeModeEnum.Dark),
+              child: const Text('Dark Theme'),
+            ),
+            ElevatedButton(
+              onPressed: () => _changeTheme(context, ThemeModeEnum.Dim),
+              child: const Text('Dim Theme'),
             ),
           ],
         ),
       ),
-      floatingActionButton: Row(
-        children: [
-          FloatingActionButton(
-            onPressed: _incrementCounter,
-            tooltip: Strings.of(context)!.increment,
-            child: const Icon(Icons.add),
-          ),
-          20.horizontalSpace,
-          FloatingActionButton(
-            onPressed: _decrementCounter,
-            tooltip: Strings.of(context)!.decrement,
-            child: const Icon(Icons.remove),
-          ),
-        ],
-      ),
     );
+  }
+
+  void _changeTheme(BuildContext context, ThemeModeEnum newTheme) {
+    ref.read(themeProvider.notifier).setTheme(newTheme);
   }
 }

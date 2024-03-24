@@ -132,6 +132,145 @@ class AppTheme {
           textTheme: CupertinoTextThemeData(
               textStyle: TextStyleConstant.bodyText1LightTextTheme)));
 
+  static final ThemeData dimTheme = ThemeData(
+    pageTransitionsTheme: const PageTransitionsTheme(builders: {
+      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+    }),
+    useMaterial3: ColorConstant.isMaterial3,
+    splashFactory: InkRipple.splashFactory,
+    navigationBarTheme: NavigationBarThemeData(
+      surfaceTintColor: const Color(0xFF000000),
+      indicatorColor: ColorConstant.primaryThemeColor,
+      labelTextStyle:
+          MaterialStateProperty.all(const TextStyle(fontSize: 13.0)),
+    ),
+    textTheme: TextTheme(
+      titleLarge: TextStyleConstant.headLine6DarkTextTheme
+          .copyWith(color: Colors.grey[800]),
+      headlineSmall: TextStyleConstant.headLine5DarkTextTheme
+          .copyWith(color: Colors.grey[800]),
+      headlineMedium: TextStyleConstant.headLine4DarkTextTheme
+          .copyWith(color: Colors.grey[800]),
+      displaySmall: TextStyleConstant.headLine3DarkTextTheme
+          .copyWith(color: Colors.grey[800]),
+      displayMedium: TextStyleConstant.headLine2DarkTextTheme
+          .copyWith(color: Colors.grey[800]),
+      displayLarge: TextStyleConstant.headLine1DarkTextTheme
+          .copyWith(color: Colors.grey[800]),
+      titleSmall: TextStyleConstant.subTitle2DarkTextTheme
+          .copyWith(color: Colors.grey[800]),
+      titleMedium: TextStyleConstant.subTitle1DarkTextTheme
+          .copyWith(color: Colors.grey[800]),
+      bodyMedium: TextStyleConstant.bodyText2DarkTextTheme
+          .copyWith(color: Colors.grey[800]),
+      bodyLarge: TextStyleConstant.bodyText1DarkTextTheme
+          .copyWith(color: Colors.grey[800]),
+      labelLarge: TextStyleConstant.buttonLightTextTheme
+          .copyWith(color: Colors.grey[800]),
+      labelSmall: TextStyleConstant.overLineLightTextTheme
+          .copyWith(color: Colors.grey[800]),
+      bodySmall: TextStyleConstant.captionLightTextTheme
+          .copyWith(color: Colors.grey[800]),
+    ),
+    focusColor: ColorConstant.focusDarkThemeColor,
+    hintColor: ColorConstant.hintDarkThemeColor,
+    unselectedWidgetColor: ColorConstant.unSelectedWidgetDarkThemeColor,
+    shadowColor: ColorConstant.selectedRowDarkThemeColor,
+    iconTheme: const IconThemeData(color: ColorConstant.iconDarkThemeColor),
+    indicatorColor: ColorConstant.indicatorDarkThemeColor,
+    cardTheme: CardTheme(
+      shape: PropertyConstant.cardShapeBorder,
+      color: Colors.grey[200], // Dim card color
+    ),
+    colorScheme: ColorScheme.fromSeed(
+      // brightness: Brightness.
+      primary: ColorConstant.primaryThemeColor,
+      onPrimary: const Color(0xFF680019),
+      primaryContainer: const Color(0xFFFA4F26),
+      onPrimaryContainer: const Color(0xFFFFDADA),
+      secondary: const Color(0xFFE6BDBD),
+      onSecondary: const Color(0xFFFA4F26),
+      secondaryContainer: const Color(0xFF5D3F40),
+      onSecondaryContainer: const Color(0xFFFFDADA),
+      tertiary: const Color(0xFFE6C08D),
+      onTertiary: const Color(0xFF432C06),
+      tertiaryContainer: const Color(0xFF5C421A),
+      onTertiaryContainer: const Color(0xFFFA4F26),
+      error: const Color(0xFFFFB4AB),
+      errorContainer: const Color(0xFF93000A),
+      onError: const Color(0xFF690005),
+      onErrorContainer: const Color(0xFFFFFFFF),
+      background: const Color(0xFF4A4A4A),
+      onBackground: const Color(0xFF4A4A4A),
+      surface: Colors.grey[300], // Dim surface color
+      onSurface: const Color(0xFFECE0DF),
+      surfaceVariant: const Color(0xFF524343),
+      onSurfaceVariant: const Color(0xFFD7C1C1),
+      outline: const Color(0xFF9F8C8C),
+      onInverseSurface: const Color(0xFF201A1A),
+      inverseSurface: const Color(0xFFECE0DF),
+      inversePrimary: const Color(0xFFFA4F26),
+      shadow: const Color(0xFF000000),
+      surfaceTint: Colors.grey[200], // Dim surface color
+      outlineVariant: ColorConstant.dividerDarkThemeColor,
+      scrim: const Color(0xFF000000),
+      seedColor: ColorConstant.primaryThemeColor,
+    ),
+    filledButtonTheme: FilledButtonThemeData(
+      style: FilledButton.styleFrom(
+        textStyle: TextStyleConstant.buttonTextStyle,
+        elevation: 0.5,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        padding: const EdgeInsets.symmetric(vertical: 10),
+      ),
+    ),
+    appBarTheme: AppBarTheme(
+      surfaceTintColor: const Color(0xFF000000),
+      elevation: 0.0,
+      titleSpacing: 0,
+      centerTitle: false,
+      titleTextStyle: TextStyleConstant.subTitle1DarkTextTheme,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      labelStyle: TextStyleConstant.headLine2DarkTextTheme,
+      floatingLabelStyle: TextStyleConstant.headLine5DarkTextTheme,
+      isDense: true,
+      contentPadding:
+          const EdgeInsets.symmetric(vertical: 12.0, horizontal: 10.0),
+      border: OutlineInputBorder(
+        borderRadius: PropertyConstant.textFieldBorderRadius,
+        borderSide: const BorderSide(color: ColorConstant.inputBorderDarkColor),
+      ),
+      errorStyle: TextStyleConstant.errorTextFieldTheme,
+      errorMaxLines: 1,
+      enabledBorder: OutlineInputBorder(
+        borderRadius: PropertyConstant.textFieldBorderRadius,
+        borderSide:
+            const BorderSide(color: ColorConstant.inputEnabledBorderDarkColor),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: PropertyConstant.textFieldBorderRadius,
+        borderSide: const BorderSide(color: ColorConstant.primaryThemeColor),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: PropertyConstant.textFieldBorderRadius,
+        borderSide: const BorderSide(color: ColorConstant.primaryThemeColor),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: PropertyConstant.textFieldBorderRadius,
+        borderSide: const BorderSide(color: ColorConstant.primaryThemeColor),
+      ),
+    ),
+    cupertinoOverrideTheme: NoDefaultCupertinoThemeData(
+      textTheme: CupertinoTextThemeData(
+        textStyle: TextStyleConstant.bodyText1DarkTextTheme,
+      ),
+    ),
+  );
+
   static final ThemeData darkTheme = ThemeData(
       pageTransitionsTheme: const PageTransitionsTheme(builders: {
         TargetPlatform.android: CupertinoPageTransitionsBuilder(),

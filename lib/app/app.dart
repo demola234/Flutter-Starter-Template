@@ -50,10 +50,9 @@ class StarterTemplateApp extends StatelessWidget {
       case ThemeModeEnum.Dark:
         return AppTheme.darkTheme;
       case ThemeModeEnum.Dim:
-        // Define your dim theme here
         return AppTheme.darkTheme;
       default:
-        return ThemeData.light();
+        return AppTheme.lightTheme;
     }
   }
 }

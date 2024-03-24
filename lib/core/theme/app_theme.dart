@@ -133,18 +133,18 @@ class AppTheme {
               textStyle: TextStyleConstant.bodyText1LightTextTheme)));
 
   static final ThemeData dimTheme = ThemeData(
-    pageTransitionsTheme: const PageTransitionsTheme(builders: {
-      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-    }),
     useMaterial3: ColorConstant.isMaterial3,
     splashFactory: InkRipple.splashFactory,
     navigationBarTheme: NavigationBarThemeData(
-      surfaceTintColor: const Color(0xFF000000),
-      indicatorColor: ColorConstant.primaryThemeColor,
-      labelTextStyle:
-          MaterialStateProperty.all(const TextStyle(fontSize: 13.0)),
-    ),
+        surfaceTintColor: const Color(0xFFFA4F26),
+        indicatorColor: ColorConstant.primaryThemeColor,
+        labelTextStyle:
+            MaterialStateProperty.all(const TextStyle(fontSize: 13.0))),
+    pageTransitionsTheme: const PageTransitionsTheme(builders: {
+      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.iOS: CupertinoPageTransitionsBuilder()
+    }),
+    
     textTheme: TextTheme(
       titleLarge: TextStyleConstant.headLine6DarkTextTheme
           .copyWith(color: Colors.grey[800]),
@@ -184,7 +184,7 @@ class AppTheme {
       color: Colors.grey[200], // Dim card color
     ),
     colorScheme: ColorScheme.fromSeed(
-      // brightness: Brightness.
+      brightness: Brightness.light,
       primary: ColorConstant.primaryThemeColor,
       onPrimary: const Color(0xFF680019),
       primaryContainer: const Color(0xFFFA4F26),
@@ -201,8 +201,8 @@ class AppTheme {
       errorContainer: const Color(0xFF93000A),
       onError: const Color(0xFF690005),
       onErrorContainer: const Color(0xFFFFFFFF),
-      background: const Color(0xFF4A4A4A),
-      onBackground: const Color(0xFF4A4A4A),
+      background: const Color(0xFF8CC5E7),
+      onBackground: const Color(0xFF3D3D3D),
       surface: Colors.grey[300], // Dim surface color
       onSurface: const Color(0xFFECE0DF),
       surfaceVariant: const Color(0xFF524343),

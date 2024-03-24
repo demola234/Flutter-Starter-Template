@@ -40,7 +40,7 @@ dependencies:
   json_annotation: ^4.8.0
   logger: ^2.0.2+1
   lottie: ^2.7.0
-  package_info_plus: ^5.0.1
+  package_info_plus: ^6.0.0
   permission_handler: ^11.1.0
   pretty_animated_buttons: null
   pretty_dio_logger: null

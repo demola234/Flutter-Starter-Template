@@ -1,4 +1,5 @@
 {
   "java.compile.nullAnalysis.mode": "automatic",
-  "cSpell.words": ["synchronizable"]
+  "cSpell.words": ["synchronizable"],
+  "java.configuration.updateBuildConfiguration": "interactive"
 }

@@ -13,7 +13,7 @@ class ColorConstant {
   static const Color whiteColor = Color(0xFFFFFFFF);
 
   static const Color primaryThemeColor = Color(0xFFFA4F26);
-  static const Color scaffoldBackgroundDarkThemeColor = Color(0xFF2C2C2C);
+  static const Color scaffoldBackgroundDarkThemeColor = Color(0xFF000000);
 
   static const Color iconWhiteColor = Color(0xFFFFFFFF);
 

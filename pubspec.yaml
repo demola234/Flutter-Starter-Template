@@ -41,7 +41,7 @@ dependencies:
   logger: ^2.0.2+1
   lottie: ^2.7.0
   package_info_plus: ^5.0.1
-  permission_handler: ^11.1.0
+  permission_handler: ^11.3.0
   pretty_animated_buttons: null
   pretty_dio_logger: null
   riverpod: ^2.5.1

@@ -1,25 +1,30 @@
+import 'package:riverpod/riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+enum ThemeModeEnum { Light, Dark, Dim }
 
+class ThemeNotifier extends StateNotifier<ThemeModeEnum> {
+  ThemeNotifier() : super(ThemeModeEnum.Light);
 
-// class ThemeDetector {
-//   const ThemeDetector();
+  void setTheme(ThemeModeEnum theme) {
+    state = theme;
+    _saveThemePreference(theme);
+  }
 
-//   static void init(BuildContext context) {
-//     try {
-//       _listen(context);
-//       View.of(context).platformDispatcher.onPlatformBrightnessChanged = () {
-//         _listen(context);
-//       };
-//     } catch (e) {
-//       return;
-//     }
-//   }
+  Future<void> _saveThemePreference(ThemeModeEnum theme) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('theme', theme.index);
+  }
 
-//   static void _listen(context) {
-//     final brightness = View.of(context).platformDispatcher.platformBrightness;
-//     BlocProvider.of<ThemeCubit>(context).setTheme(
-//         themeMode: brightness == Brightness.dark
-//             ? ThemeMode.dark
-//             : ThemeMode.light);
-//   }
-// }
+  Future<void> loadTheme() async {
+    final prefs = await SharedPreferences.getInstance();
+    final savedThemeIndex = prefs.getInt('theme') ?? 0;
+    state = ThemeModeEnum
+        .values[savedThemeIndex.clamp(0, ThemeModeEnum.values.length - 1)];
+  }
+}
+
+final themeProvider =
+    StateNotifierProvider<ThemeNotifier, ThemeModeEnum>((ref) {
+  return ThemeNotifier()..loadTheme();
+});

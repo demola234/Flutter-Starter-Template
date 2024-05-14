@@ -38,7 +38,7 @@ dependencies:
   internet_connection_checker: ^1.0.0+1
   intl: any
   json_annotation: ^4.8.0
-  logger: ^2.0.2+1
+  logger: ^2.3.0
   lottie: ^2.7.0
   package_info_plus: ^5.0.1
   permission_handler: ^11.1.0

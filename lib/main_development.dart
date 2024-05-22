@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'app/app.dart';
 import 'app/app_config.dart';
@@ -9,13 +10,18 @@ void main() async {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
+  String envFile = 'env/.env.development';
+
+  await dotenv.load(fileName: envFile);
+
+  final String appName = dotenv.get('APP_NAME');
+  final String baseUrl = dotenv.get('BASE_URL');
+
   AppConfig.create(
-    appName: 'Dev Flavor Example',
-    baseUrl: 'https://dev.dwirandyh.com',
+    appName: appName,
+    baseUrl: baseUrl,
     primaryColor: Colors.blue,
     flavor: Flavor.development,
   );
-  runApp(const StarterTemplateApp(
-    title: 'Development'
-  ));
+  runApp(const StarterTemplateApp(title: 'Development'));
 }

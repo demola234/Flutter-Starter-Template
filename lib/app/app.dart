@@ -18,7 +18,6 @@ class StarterTemplateApp extends StatelessWidget {
       child: Consumer(
         builder: (_, WidgetRef ref, __) {
           final themeMode = ref.watch(themeProvider);
-          print(themeMode);
           return ScreenUtilInit(
             designSize: const Size(393, 852),
             minTextAdapt: true,
@@ -26,6 +25,7 @@ class StarterTemplateApp extends StatelessWidget {
             child: MaterialApp(
               title: title,
               debugShowCheckedModeBanner: false,
+            
               locale: const Locale('en'),
               supportedLocales: L10n.all,
               theme: _getThemeData(themeMode),

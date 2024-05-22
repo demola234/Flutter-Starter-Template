@@ -78,9 +78,6 @@ build_apk_prod: ## Runs the mobile application in prod
 fetch: ## Runs and fetches all the freezed package
 	@flutter pub run build_runner build --delete-conflicting-outputs
 
-default_notification: ## Runs notification on Emulator for testing
-	@xcrun simctl push booted com.synergyng.synergy pushes/push1.json
-
 purge: ## Purges the Flutter 
 	@pod deintegrate
 	@flutter clean
